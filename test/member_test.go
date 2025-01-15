@@ -89,4 +89,4 @@ func TestPassword(t *testing.T){
 		g.Expect(err).NotTo(BeNil())
 		g.Expect(err.Error()).To(Equal("Password not null"))
 	})
-}
+}//test
