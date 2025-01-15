@@ -75,3 +75,18 @@ func TestEmail(t *testing.T){
 		g.Expect(err).To(BeNil())
 	})
 }
+func TestPassword(t *testing.T){
+	g:=NewGomegaWithT(t)
+	t.Run(`Test Password not null`,func(t *testing.T){
+		member :=entity.Member{
+			UserName: "a",
+			Password: "",
+			Email: "a@gmail.com",
+		}
+		ok ,err :=govalidator.ValidateStruct(member)
+
+		g.Expect(ok).NotTo(BeTrue())
+		g.Expect(err).NotTo(BeNil())
+		g.Expect(err.Error()).To(Equal("Password not null"))
+	})
+}

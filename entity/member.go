@@ -1,13 +1,12 @@
 package entity
-import (
-	//"github.com/onsi/gomega"
-	//"time"
-	"gorm.io/gorm")
+
+import(
+	"gorm.io/gorm"
+)
 
 type Member struct{
-	gorm.Model
+	gorm.Model 
 	UserName string `gorm:"uniqueIndex" valid:"required~UserName not null"`
-	
-	Password string
-	Email string `gorm:"uniqueIndex" valid:"required~Email not null ,email~Email is invalid"`
-}
+	Password string `valid:"required~Password not null"`
+	Email string `gorm:"uniqueIndex" valid:"required~Email not null , email~Email is invalid"`
+} 
